@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Static Top Navbar Example for Bootstrap</title>
+    <title>Gcode-Tweaker</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,8 +37,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><i class="fa fa-fire fa-lg"></i>&nbsp;Temperature Manipulation</a></li>
-            <li><a href="#about"><i class="fa fa-chain-broken fa-lg"></i>&nbsp;Create Tensile Stick</a></li>
+            <li class="active"><a href="/temperature"><i class="fa fa-fire fa-lg"></i>&nbsp;Temperature Manipulation</a></li>
+            <li><a href="/tensile"><i class="fa fa-chain-broken fa-lg"></i>&nbsp;Create Tensile Stick</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -27,33 +27,6 @@
 						</div>
 					</div>
 				</div>
-				<div id="preset_files_accordion" class="accordion-group">
-					<div class="accordion-heading">
-						<a class="accordion-toggle" href="#preset-files" data-toggle="collapse">
-						<i class="fa fa-file-powerpoint-o"></i>
-						Preset-Files
-						</a>
-					</div>
-					<div id="files" class="accordion-body collapse in overflow_visible">
-						<div class="accordion-inner">
-							<table id="preset_files" class="table table-condensed table-hover">
-								<tr>
-									<th class="preset_files_name">Name</th>
-									<th class="preset_files_upload">Uploaded</th>
-									<th class="preset_files_action">Action</th>
-								</tr>
-								<tr>
-									<td class="preset_files_name" data-bind="text: name">20mm-box.preset</td>
-									<td class="preset_files_upload" data-bind="text: formatSize(size)">122.0KB</td>
-									<td class="preset_files_action">
-										<a class="fa fa-trash" title="Remove" href="#"></a> |
-										<a class="fa fa-forward"  title="Load" href="#"></a>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
 				<div id="modified_files_accordion" class="accordion-group">
 					<div class="accordion-heading">
 						<a class="accordion-toggle" href="#modified-files" data-toggle="collapse">
@@ -89,38 +62,20 @@
 						 	<h4>20mm-box.gcode</h4>
 						 </div>
 						 <div class="row center-block">
-						 	<button type="button" class="btn btn-default"><i class="fa fa-plus"></i>
-							</button> 
-							<button type="button" class="btn btn-default"><i class="fa fa-minus"></i>
-							</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="button" class="btn btn-default"><i class="fa fa-eraser"></i>
-							Reset Table</button>
-							<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i>
-							&nbsp;Save Preset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							Reset Values</button>
 							<button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>
 							&nbsp;Modify Gcode</button>
 						 </div>
 						 <div class="content row">
 							<table class="table table-bordered table-striped">
 								<tr>
-									<th>#</th>
-									<th>Z-Value [mm]</th>
-									<th>Temperature [°C]</th>
+									<th>Layer to copy</th>
+									<th>Number of copies</th>
 								</tr>
 								<tr>
-									<td>1</td>
-									<td><input type="text" class="form-control" value="2"></td>
-									<td><input type="text" class="form-control" value="220"></td>
-								</tr>
-								<tr>
-									<td>2</td>
 									<td><input type="text" class="form-control" value="3"></td>
-									<td><input type="text" class="form-control" value="230"></td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td><input type="text" class="form-control" value="4"></td>
-									<td><input type="text" class="form-control" value="240"></td>
+									<td><input type="text" class="form-control" value="20"></td>
 								</tr>
 							</table>
 						 </div>
