@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths gamepads filereader"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
     <title>Gcode-Tweaker</title>
 
@@ -37,8 +37,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/temperature"><i class="fa fa-fire fa-lg"></i>&nbsp;Temperature Manipulation</a></li>
-            <li><a href="/tensile"><i class="fa fa-chain-broken fa-lg"></i>&nbsp;Create Tensile Stick</a></li>
+            <li><a href="/temperature"><i class="fa fa-fire fa-lg"></i>&nbsp;Temperature Manipulation</a></li>
+            <li><a href="/tensile"><i class="fa fa-files-o fa-lg"></i>&nbsp;Layer Cloning</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -65,6 +65,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="css/bootstrap/js/jquery.js"></script>
     <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="javascripts/tweaks.js"></script>
 
 </body></html>
 <!--
