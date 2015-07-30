@@ -7,14 +7,21 @@
 						<i class="fa fa-file-code-o"></i> Gcode-Files
 						</a>
 					</div>
-					<div id="files" class="accordion-body collapse in overflow_visible">
+					<div id="files" class="accordion-body collapse in overflow_visible"> 
 						<div class="accordion-inner">
-							<table id="gcode_files" class="table table-condensed table-hover">
+							<table id="gcode_files" class="table table-condensed table-hover" data-bind="foreach: listHelper.paginatedItems">
 								<tr>
 									<th class="gcode_files_name">Name</th>
 									<th class="gcode_files_upload">Uploaded</th>
 									<th class="gcode_files_action">Action</th>
 								</tr>
+								<tr data-bind="css: $root.getSuccessClass($data), style: { 'font-weight': $root.listHelper.isSelected($data) ? 'bold' : 'normal' }, popover: { title: name, animation: true, html: true, placement: 'right', trigger: 'hover', delay: 0, content: $root.getPopoverContent($data), html: true }" data-original-title="" style="font-weight: normal;">
+									<td class="gcode_files_name" data-bind="text: name">20mm-box.gcode</td>
+									<td class="gcode_files_upload" data-bind="text: formatSize(size)">122.0KB</td>
+									<td class="gcode_files_action">
+										<a title="Remove" href="#"><i class="fa fa-trash"></i></a> |
+										<a title="Load" href="#"><i class="fa fa-forward"></i></a>
+									</td>
 								<tr>
 									<td class="gcode_files_name" data-bind="text: name">20mm-box.gcode</td>
 									<td class="gcode_files_upload" data-bind="text: formatSize(size)">122.0KB</td>
@@ -23,7 +30,36 @@
 										<a title="Load" href="#"><i class="fa fa-forward"></i></a>
 									</td>
 								</tr>
+								</tr>
 							</table>
+							<div class="muted text-right">
+							<small>Free Space: <span data-bind="text: freeSpaceString"><% freeSpace %></span></small>
+							</div>
+							<!--
+							<div class="pagination pagination-mini pagination-centered">
+								<ul>
+									<li class="disabled" data-bind="css: {disabled: listHelper.currentPage() === 0}">
+										<a data-bind="click: listHelper.prevPage" href="#">«</a>
+									</li>
+								</ul>
+								<ul data-bind="foreach: listHelper.pages">
+									<li class="active" data-bind="css: { active: $data.number === $root.listHelper.currentPage(), disabled: $data.number === -1 }">
+										<a data-bind="text: $data.text, click: function() { $root.listHelper.changePage($data.number); }" href="#">1</a>
+									</li>
+									<li class="" data-bind="css: { active: $data.number === $root.listHelper.currentPage(), disabled: $data.number === -1 }">
+										<a data-bind="text: $data.text, click: function() { $root.listHelper.changePage($data.number); }" href="#">2</a>
+									</li>
+									<li class="" data-bind="css: { active: $data.number === $root.listHelper.currentPage(), disabled: $data.number === -1 }">
+										<a data-bind="text: $data.text, click: function() { $root.listHelper.changePage($data.number); }" href="#">3</a>
+									</li>
+								</ul>
+								<ul>
+									<li class="" data-bind="css: {disabled: listHelper.currentPage() === listHelper.lastPage()}">
+										<a data-bind="click: listHelper.nextPage" href="#">»</a>
+									</li>
+								</ul>
+							</div>
+							-->
 						</div>
 					</div>
 				</div>
@@ -89,39 +125,31 @@
 						 	<h4>20mm-box.gcode</h4>
 						 </div>
 						 <div class="row center-block">
-						 	<button type="button" class="btn btn-default"><i class="fa fa-plus"></i>
-							</button> 
-							<button type="button" class="btn btn-default"><i class="fa fa-minus"></i>
-							</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="button" class="btn btn-default"><i class="fa fa-eraser"></i>
+						 	<button type="button" class="btn btn-default" name="add_row" onClick="insRow()"><i class="fa fa-plus"></i>
+							Add Row</button> 
+							<button type="button" class="btn btn-default" name="reset_table"><i class="fa fa-eraser"></i>
 							Reset Table</button>
-							<button type="button" class="btn btn-default"><i class="fa fa-floppy-o"></i>
+							<button type="button" class="btn btn-default" name="save_preset"><i class="fa fa-floppy-o"></i>
 							&nbsp;Save Preset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>
+							<button type="button" class="btn btn-primary" name="mod_gcode"><i class="fa fa-pencil-square-o"></i>
 							&nbsp;Modify Gcode</button>
 						 </div>
 						 <div class="content row">
-							<table class="table table-bordered table-striped">
+							<table class="table table-bordered table-striped" id="valueTable">
 								<tr>
 									<th>#</th>
 									<th>Z-Value [mm]</th>
 									<th>Temperature [°C]</th>
+									<th></th>
 								</tr>
+								<% FOREACH set = preset %>
 								<tr>
-									<td>1</td>
-									<td><input type="text" class="form-control" value="2"></td>
-									<td><input type="text" class="form-control" value="220"></td>
+									<td><% set.count %></td>
+									<td><input id="1" type="text" class="form-control" value="<% set.zValue %>"></td>
+									<td><input id="1" type="text" class="form-control" value="<% set.Temp %>"></td>
+									<td> <button type="button" class="btn btn-default" name="del_row" onClick="deleteRow(this)"><i class="fa fa-trash"></i></button></td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td><input type="text" class="form-control" value="3"></td>
-									<td><input type="text" class="form-control" value="230"></td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td><input type="text" class="form-control" value="4"></td>
-									<td><input type="text" class="form-control" value="240"></td>
-								</tr>
+								<% END %>
 							</table>
 						 </div>
 						 </form>
