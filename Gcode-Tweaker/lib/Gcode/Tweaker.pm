@@ -1,5 +1,6 @@
 package Gcode::Tweaker;
 use Dancer2;
+use Modules qw(&openPreset);
 
 our $VERSION = '0.1';
 
@@ -13,7 +14,8 @@ get '/' => sub {
 };
 
 get '/temperature' => sub {
-	template 'temperature';
+	my @preset = &openPreset("20mm-box.preset");
+	template 'temperature', { preset =>\@preset };
 };
 
 get '/tensile' => sub {
